@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Two Stage Object Detectors
+title: TWO STAGE OBJECT DETECTORS
 ---
 
 ## INTRODUCTION
