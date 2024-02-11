@@ -19,7 +19,11 @@ Note : Whenever region proposal is mentioned, assume that it is rectangular. Thi
 
 ### FEATURE EXTRACTION
 
-I will not discuss much about selective search (I don't understand how that thing works) but assumming that we have region proposals, we resize them to (227, 227) and then passed to CNN network (Alexnet, vggnet etc) to get the vector representation of the proposal.
+I will not discuss much about selective search (I don't understand how that thing works). This algorithm generates usually 2000 proposals.
+
+What I mean when I say generate is that for an input image, it will give us 2000 $(x, y, h, w)$ where $(x, y)$ denotes the top-left coordinate and $(h, w)$ denotes the height and width of proposal. The idea is that these location can have object in them. There are lot of algorithms that can do this task and selective search is one of them.
+
+Assumming that we have region proposals, we resize them to (227, 227) and then passed to CNN network (Alexnet, vggnet etc) to get the vector representation of the proposal.
 
 The feature extractor is usually pretrained on image-net and then finetuned on region proposals. The finetuning stage is called domain specific fine-tuning.
 
@@ -122,3 +126,27 @@ Output of ROI Pooling is extracted from each proposal and they are passed to ser
 
 - First one has $(N + 1)$ as the output size where $N$ denotes the number of classes and $1$ is for background class. Applying softmax will give us class probabilties.
 - Second one has $4N$ as the output size. These denote the bounding box coordinates for each class (they are not exactly coordinates). For backgroound class, we will not predict the box coordinates which is obvious.
+
+One question can arise is why are we predicting the bounding box co-ordinates ? For each proposal, we have the location and why can't we use that location as our predicted box coordinates ?
+This is a valid question and the reason is the proposals co-ordinates are usually not that accurate. Having a bounding box regressor usually improves the score. But we don't discard the proposal co-ordinates totally. We use them as the base and then only predict the offsets. Then the final box co-ordinates can be written as $proposal + offset$. More details are given below
+
+With this we conclude forward pass for a single image in fast-rcnn
+
+### TRAINING
+
+Given that we have an idea of how forward pass works for fast-rcnn, then obivous next question should be how to train the model.
+
+The model training for fast-rcnn is done by optimizing a joint loss which is combination of classficiation and regression loss.
+
+Loss is calculated for each proposal and then averaged. So to calulate loss for each proposal, we should compare the proposal with something. That is for example, if 2000 proposals are generated then usually lot of them are not useful. That is proposals doesn't contain any object in them. So the model should assign the background class probability for these proposals a very high value.
+
+So in the sense, using training data we should create $(X_{p}, y_{p}, b_{p})$ where $X_{p}$ is the proposal, $y_{p}$ is class of the proposal. It can be background or one of the $N$ classes. $b_{p}$ is bounding box co-ordinates for that proposal.
+
+The way to do this is as follows
+- For a proposal, if its maximum IoU with any of the ground truth is greater than 0.5, then we call it as positive proposal. If there are multiple ground truths, then the one with the highest IoU is chosen and assigned to the proposal. This means if $gt$ is ground truth assigned to proposal $p$, then our pair becomes $(X_{p}, y_{gt}, b_{gt})$ where $y_{gt}$ is the ground truth class of $gt$.
+- For a proposal, if the maximum IoU with ground truth is in the interval $(0.1, 0.5]$, then these proposals are called as negative proposal. They have ground truth as background class and no box coordinates.
+- The remaining proposals are ignored.
+
+Now that we have $(X, y, b)$ we will discuss how to calculate the loss function.
+
+Classification loss is simply the cross-entropy between predicted probabilties and ground truth of the proposal.
