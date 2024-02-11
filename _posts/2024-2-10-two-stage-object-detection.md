@@ -1,6 +1,6 @@
 ---
 layout: post
-title: TWO STAGE OBJECT DETECTION
+title: Two Stage Object Detection
 ---
 
 In this post, we will discuss about 2 stage object detectors Fast-RCNN, Faster-RCNN and their ideas. I will also give a breif introduction to RCNN but will not go into much detail.
@@ -68,7 +68,7 @@ One of the main reason why RCNN is slow is because feature extraction is done fo
 
 The changes introduced by fast-rcnn are
 
-- Introduces the ROI layer which will enable it to calcuate the feature vectors for all proposals at once.
+- Introduces the ROI Pooling layer which will enable it to calcuate the feature vectors for all proposals at once.
 - Removes SVM and both classification and regression are done using dense layer
 - Proposes a 1 step training pipeline where both classification and regression loss is optimized compare to RCNN where classification and regression were trained seperately.
 
@@ -77,3 +77,48 @@ The changes introduced by fast-rcnn are
 The architecure for fast-rcnn is given below
 
 ![fast-rcnn-arch.png](/images/2-stage-object-detection/fast-rcnn-arch.png)
+
+Points to observe
+- Each proposal is projected to feature map and then a fixed size map is extracted using ROI pool layer
+- As mentioned in the diagram, for each ROI, the output if ROIPool is passed to 2 MLP heads and then followed by classification and regression head
+- One can calulate the regression and classification loss for each ROI at the time of training.
+- If ROI Pooling is differentiable, then doing backpropogation will update all the layers at once.
+
+Let's discuss each step in more detail.
+
+- For the input image, we generate the proposals using the selective search algorithm (the one used by RCNN). As per the above diagram, we have 3 proposals.
+- The image is first passed to a pretrained CNN (mostly trained on image-net). Let's suppose the input image has shape $(3, H, W)$ and output of the feature extractor is $(C, H_{f}, W_{f})$
+- Now the proposals are projected to feature map. That is if the proposal is at the location $(P_{x}, P_{y})$ and size is $(P_{h}, P_{w})$, the after the projection the proposal will be at location $(P_{x}\frac{W_{f}}{W}, P_{y}\frac{H_{f}}{H})$ and the size will be $(P_{h}\frac{H_{f}}{H}, P_{w}\frac{W_{f}}{W})$
+
+Note that projection is done for all the proposals. Also we have to do rounding as location and size should be integers. This rounding-off is something I am ignoring as of now.
+
+Observe that projections are of different size (it is obvious as proposals are also different size). So simply cropping the feature map at the projection and then flattening will not work as they will not produce fixed size.
+
+This is where ROI Pooling comes into play. This layer takes feature map and location of projection coordinates and then produces the fixed size feature map.
+
+#### ROI POOLING LAYER
+
+The ROI Pooling layer uses max pooling to convert feature map projection to a fixed size feature map. As per the example above, let's say the projection of feature map will be
+
+$$ (C, P_{h}\frac{H_{f}}{H}, P_{w}\frac{W_{f}}{W}) $$
+
+where $C$ is channels. Then this input will be transformed to $(C, O, O)$ where $O$ is the layer hyper-parameter that are independent of the proposal. Usually fixed at the start of training, and the usual value of 7.
+
+Also ROI Pooling is appiled to each channel and that is how we will get $C$ channels in the output. Now the big question is how do we calculate for one channel?
+
+We know that height and width of projection is ($P_{h}\frac{H_{f}}{H}, P_{w}\frac{W_{f}}{W}$). Using this we have to create an output of $(O,  O)$. So what we do is divide the projection into sub windows each of size ($P_{h}\frac{H_{f}}{HO}, P_{w}\frac{W_{f}}{WO}$) and in each subwindow we will take the maximum.
+
+Note
+- Because of rounding it is possible that sub windows will not be of same size.
+- The sub window calculation is applied to each channel as mentioned before also.
+- There are some corner cases which I don't have complete understanding. For example if the projection is of (5, 1) that is height 5 and width 1. Let's suppose the ROI pool output size is (3, 3) then how do we create subwindows here ?
+- This [blog](https://deepsense.ai/region-of-interest-pooling-explained/) gives an example. I suggest you can visit that to get more familiarity.
+- This operation is available in pytorch via `torchvision.ops.roi_pool`. So you can play with that as well to get more understanding.
+- I also tried reading source code to understand more of corner cases, but no luck there as well.
+
+Now that ROI Pooling is done, the last steps remain is to calculate the class probabilities and bounding box co-ordinates.
+
+Output of ROI Pooling is extracted from each proposal and they are passed to series of FC layers to get vector representing each proposal. This vector is then passed to two FC's layers
+
+- First one has $(N + 1)$ as the output size where $N$ denotes the number of classes and $1$ is for background class. Applying softmax will give us class probabilties.
+- Second one has $4N$ as the output size. These denote the bounding box coordinates for each class (they are not exactly coordinates). For backgroound class, we will not predict the box coordinates which is obvious.
