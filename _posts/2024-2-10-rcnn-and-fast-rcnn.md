@@ -1,6 +1,7 @@
 ---
 layout: post
 title: RCNN & Fast RCNN
+excerpt: Details about RCNN and Fast RCNN.
 ---
 
 In the series of posts, we will discuss about 2 stage object detectors Fast-RCNN, Faster-RCNN and their ideas. I will also give a brief introduction to RCNN but will not go into much detail.

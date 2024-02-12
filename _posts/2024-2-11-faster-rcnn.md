@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Faster RCNN
+excerpt: Details about Faster RCNN.
 ---
 
 Here we will discuss about faster rcnn in more detail.
