@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Two Stage Object Detection
+title: RCNN & Fast RCNN
 ---
 
-In this post, we will discuss about 2 stage object detectors Fast-RCNN, Faster-RCNN and their ideas. I will also give a breif introduction to RCNN but will not go into much detail.
+In the series of posts, we will discuss about 2 stage object detectors Fast-RCNN, Faster-RCNN and their ideas. I will also give a brief introduction to RCNN but will not go into much detail.
 
 2 stage detectors contains 2 stages for classifying and detecting objects. Typically, the first network will give the region proposals (the region where object might exist) and second network will take the region proposals as input and detects the object.
 
@@ -83,10 +83,11 @@ The architecure for fast-rcnn is given below
 ![fast-rcnn-arch.png](/images/2-stage-object-detection/fast-rcnn-arch.png)
 
 Points to observe
+
 - Each proposal is projected to feature map and then a fixed size map is extracted using ROI pool layer
-- As mentioned in the diagram, for each ROI, the output if ROIPool is passed to 2 MLP heads and then followed by classification and regression head
+- As mentioned in the diagram, for each ROI, the output of ROIPool is passed to 2 MLP heads and then followed by classification and regression head
 - One can calulate the regression and classification loss for each ROI at the time of training.
-- If ROI Pooling is differentiable, then doing backpropogation will update all the layers at once.
+- If ROI Pooling is differentiable with respect to feature map, then doing backpropogation will update all the layers at once.
 
 Let's discuss each step in more detail.
 
@@ -113,6 +114,7 @@ Also ROI Pooling is appiled to each channel and that is how we will get $C$ chan
 We know that height and width of projection is ($P_{h}\frac{H_{f}}{H}, P_{w}\frac{W_{f}}{W}$). Using this we have to create an output of $(O,  O)$. So what we do is divide the projection into sub windows each of size ($P_{h}\frac{H_{f}}{HO}, P_{w}\frac{W_{f}}{WO}$) and in each subwindow we will take the maximum.
 
 Note
+
 - Because of rounding it is possible that sub windows will not be of same size.
 - The sub window calculation is applied to each channel as mentioned before also.
 - There are some corner cases which I don't have complete understanding. For example if the projection is of (5, 1) that is height 5 and width 1. Let's suppose the ROI pool output size is (3, 3) then how do we create subwindows here ?
@@ -128,7 +130,7 @@ Output of ROI Pooling is extracted from each proposal and they are passed to ser
 - Second one has $4N$ as the output size. These denote the bounding box coordinates for each class (they are not exactly coordinates). For backgroound class, we will not predict the box coordinates which is obvious.
 
 One question can arise is why are we predicting the bounding box co-ordinates ? For each proposal, we have the location and why can't we use that location as our predicted box coordinates ?
-This is a valid question and the reason is the proposals co-ordinates are usually not that accurate. Having a bounding box regressor usually improves the score. But we don't discard the proposal co-ordinates totally. We use them as the base and then only predict the offsets. Then the final box co-ordinates can be written as $proposal + offset$. More details are given below
+This is a valid question and the reason is the proposals co-ordinates are usually not that accurate. Having a bounding box regressor usually improves the score. But we don't discard the proposal co-ordinates totally. We use them as the base and then only predict the offsets. Then the final predicted box co-ordinates can be written as function of $f(proposal,  offset)$. More details are given below
 
 With this we conclude forward pass for a single image in fast-rcnn
 
@@ -136,17 +138,68 @@ With this we conclude forward pass for a single image in fast-rcnn
 
 Given that we have an idea of how forward pass works for fast-rcnn, then obivous next question should be how to train the model.
 
-The model training for fast-rcnn is done by optimizing a joint loss which is combination of classficiation and regression loss.
+The first step is to generate the proposals for all the training images. Model training for fast-rcnn is done by optimizing a joint loss which is combination of classficiation and regression loss.
 
 Loss is calculated for each proposal and then averaged. So to calulate loss for each proposal, we should compare the proposal with something. That is for example, if 2000 proposals are generated then usually lot of them are not useful. That is proposals doesn't contain any object in them. So the model should assign the background class probability for these proposals a very high value.
 
-So in the sense, using training data we should create $(X_{p}, y_{p}, b_{p})$ where $X_{p}$ is the proposal, $y_{p}$ is class of the proposal. It can be background or one of the $N$ classes. $b_{p}$ is bounding box co-ordinates for that proposal.
+So in the sense, using training data (image, ground truth, proposals) we should create $(X_{p}, y_{p}, b_{p})$ where $X_{p}$ is the proposal, $y_{p}$ is class of the proposal. It can be background or one of the $N$ classes. $b_{p}$ is bounding box co-ordinates for that proposal.
 
 The way to do this is as follows
+
 - For a proposal, if its maximum IoU with any of the ground truth is greater than 0.5, then we call it as positive proposal. If there are multiple ground truths, then the one with the highest IoU is chosen and assigned to the proposal. This means if $gt$ is ground truth assigned to proposal $p$, then our pair becomes $(X_{p}, y_{gt}, b_{gt})$ where $y_{gt}$ is the ground truth class of $gt$.
 - For a proposal, if the maximum IoU with ground truth is in the interval $(0.1, 0.5]$, then these proposals are called as negative proposal. They have ground truth as background class and no box coordinates.
 - The remaining proposals are ignored.
 
 Now that we have $(X, y, b)$ we will discuss how to calculate the loss function.
 
-Classification loss is simply the cross-entropy between predicted probabilties and ground truth of the proposal.
+Classification loss is simply the cross-entropy between predicted probabilties and ground truth of the proposal (It will be over $N + 1$ outputs).
+
+The second part is regression loss. This layer predicts the offsets that when added to proposal will give the ground truth box. That is denote the proposal as $(P_{x}, P_{y}, P_{w}, P_{h})$ and ground truth as $(G_{x}, G_{y}, G_{w}, G_{h})$ where subscript $(x, y)$ denote the center coordinates
+
+We then define the offsets as $(dx, dy, dw, dh)$ as follows
+
+$$ G_{x} = P_{w}dx + P_{x} $$
+$$ G_{y} = P_{y}dy + P_{y} $$
+$$ G_{w} = P_{w}e^{-dw} $$
+$$ G_{h} = P_{h}e^{-dh} $$
+
+So instead of predicting $(G_{x}, G_{y}, G_{w}, G_{h})$ we predict $(dx, dy, dw, dh)$ from the second FC layer.
+
+Let's suppose the predictions are $(t_{x}, t_{y}, t_{w}, t_{h})$ then we define the regression loss as
+
+$L_{R}(t, d) = \sum\limits_{i \in {x, y, w, h}} f_{s}(t_{i} - d_{i})$
+
+where $f_{s}$ is defined as
+
+$$f_{s}(x) = \begin{cases} 0.5x^2 & \text{if $\lvert x \rvert < 0.5$ } \\ \lvert x \rvert - 0.5 & \text{otherwise} \end{cases}$$
+
+With this we can define loss function for a proposal is
+
+$L = \begin{cases} L_{C}(p, y_{gt}) + \lambda L_{R}(t, d) & \text{if proposal is positive}\\ L_{C}(p, ,y_{gt}) & \text{if proposal is negative}\end{cases}$
+
+Authors used $\lambda = 1$ in the implementation. Final loss function is average over all the proposals.
+
+#### MINI BATCH SAMPLING
+
+In each iteration, 2 images are chosen uniformly. For each image, 64 proposals are chosen randomly. In 64 proposals, 25% are positive proposals and 75% are negative proposals. Usually SGD as the optimizer works well.
+
+Another important point to note is that the pretrained model (for example resnet), batch normalization is turned off in training phase (because we use 2 images per batch, so training is unstable if we don't turn it off).
+
+This concludes the training part.
+
+### TESTING
+
+The following steps describe how the testing is done for an image
+
+- Run the selective search on the image to get 2000 proposals.
+- Pass the image to CNN network to get the feature map. Calculate the ROI Pooling output for all the proposals.
+- Pass the pooling output to ge class probability and bounding box co-ordinates. The confidence score for the box is the probability score
+- Perform the non maximum supression for each class separately.
+
+## CONCLUSION
+
+In this we discussed RCNN and Fast RCNN. Although I didn't discuss much on backpropogation of ROI Pooling layer, you can assume that the Pooling layer is differentiable with respect to feature map and not with respect to proposals (due to rounding).
+
+I do have some vague understanding of backprop for ROI Pool, but expressing it in words is becoming difficult. (let's just say I didn't understood it totally.)
+
+One more point to note that is that people don't usually train fast rcnn (I never trained one) and usually go ahead with faster rcnn and its variant. This kind of builds the base for understanding of faster rcnn.
