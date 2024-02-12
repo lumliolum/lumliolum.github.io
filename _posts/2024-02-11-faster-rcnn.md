@@ -6,7 +6,7 @@ date: 2024-02-11
 
 Here we will discuss about faster rcnn in more detail.
 
-## FASTER RCNN
+## INTRODUCTION
 
 Faster RCNN was introduced in less than a year after Fast RCNN. It is better, both in terms of speed and performance than Fast RCNN.
 
