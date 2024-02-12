@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Faster RCNN
-excerpt: Details about Faster RCNN.
+date: 2024-02-11
 ---
 
 Here we will discuss about faster rcnn in more detail.
