@@ -28,11 +28,11 @@ Assumming that we have region proposals, we resize them to (227, 227) and then p
 
 The feature extractor is usually pretrained on image-net and then finetuned on region proposals. The finetuning stage is called domain specific fine-tuning.
 
+While finetuning, we remove the last layer of feature extractor (if its pretrained on image-net, we usually have it as 1000 neurons) and replace it with $(N+1)$ neurons where $N$ denotes the number of classes (+1 is for the background class).
+
 One question should naturally come is how do we create training data for region proposals ?, how do we know what is ground-truth for any region proposal.
 
-So while finetuning, we remove the last layer of feature extractor (if its pretrained on image-net, we usually have it as 1000 neurons) and replace it with $(N+1)$ neurons where $N$ denotes the number of classes (+1 is for the background class). This answers our 2nd question.
-
-The 1st question will occur in Fast-RCNN, Faster-RCNN as well. I will discuss in detail over there.
+This question I will not answer here, but will discuss in detail in fast-rcnn.
 
 ### OBJECT CATEGORY CLASSIFIER or LINEAR SVM
 
@@ -41,7 +41,7 @@ Once the feature extractor is trained, we train SVM's for each class. The input 
 Same question should occur here as well, how do we create training dataset for SVM ?
 I will skip the answer to this question.
 
-Another qusetion should occur is why are we using SVM ?. Anyway the feature extractor was trained using $(N+1)$ neurons as last layer, so it can tell for each proposal the class it belongs to.
+Another question should occur is why are we using SVM ?. Anyway the feature extractor was trained using $(N+1)$ neurons as last layer, so it can tell for each proposal the class it belongs to.
 
 Authors tried this and found that performance on VOC dropped from 54% to 50% on mAP. So they kept the idea of SVM (See appendix B of the paper for more details).
 
@@ -94,7 +94,7 @@ Let's discuss each step in more detail.
 
 - For the input image, we generate the proposals using the selective search algorithm (the one used by RCNN). As per the above diagram, we have 3 proposals.
 - The image is first passed to a pretrained CNN (mostly trained on image-net). Let's suppose the input image has shape $(3, H, W)$ and output of the feature extractor is $(C, H_{f}, W_{f})$
-- Now the proposals are projected to feature map. That is if the proposal is at the location $(P_{x}, P_{y})$ and size is $(P_{h}, P_{w})$, the after the projection the proposal will be at location $(P_{x}\frac{W_{f}}{W}, P_{y}\frac{H_{f}}{H})$ and the size will be $(P_{h}\frac{H_{f}}{H}, P_{w}\frac{W_{f}}{W})$
+- Now the proposals are projected to feature map. That is if the proposal is at the location $(P_{x}, P_{y})$ on the original image and size is $(P_{h}, P_{w})$, then after the projection the proposal will be at location $(P_{x}\frac{W_{f}}{W}, P_{y}\frac{H_{f}}{H})$ on the feature map and the size will be $(P_{h}\frac{H_{f}}{H}, P_{w}\frac{W_{f}}{W})$
 
 Note that projection is done for all the proposals. Also we have to do rounding as location and size should be integers. This rounding-off is something I am ignoring as of now.
 
@@ -114,9 +114,15 @@ Also ROI Pooling is appiled to each channel and that is how we will get $C$ chan
 
 We know that height and width of projection is ($P_{h}\frac{H_{f}}{H}, P_{w}\frac{W_{f}}{W}$). Using this we have to create an output of $(O,  O)$. So what we do is divide the projection into sub windows each of size ($P_{h}\frac{H_{f}}{HO}, P_{w}\frac{W_{f}}{WO}$) and in each subwindow we will take the maximum.
 
+Let's take an example given the image below. We have a image of (8, 8) and feature map of (4, 4). As shown in the diagram, the proposals are at (0, 0) and (2, 3). The diagram shows how ROI pooling layer works. The shaded lines the second proposals are sub-windows. In each subwindow, we take the maximum value.
+
+![roi-pool.png](/images/2-stage-object-detection/roipool.png)
+
+As shown in the diagram, the sub window sizes are calculated and rounded off to nearest integer. In case of second proposal, the first window size can be 2 as well.
+
 Note
 
-- Because of rounding it is possible that sub windows will not be of same size.
+- Because of rounding, it is possible that sub windows will not be of same size.
 - The sub window calculation is applied to each channel as mentioned before also.
 - There are some corner cases which I don't have complete understanding. For example if the projection is of (5, 1) that is height 5 and width 1. Let's suppose the ROI pool output size is (3, 3) then how do we create subwindows here ?
 - This [blog](https://deepsense.ai/region-of-interest-pooling-explained/) gives an example. I suggest you can visit that to get more familiarity.
@@ -130,7 +136,7 @@ Output of ROI Pooling is extracted from each proposal and they are passed to ser
 - First one has $(N + 1)$ as the output size where $N$ denotes the number of classes and $1$ is for background class. Applying softmax will give us class probabilties.
 - Second one has $4N$ as the output size. These denote the bounding box coordinates for each class (they are not exactly coordinates). For backgroound class, we will not predict the box coordinates which is obvious.
 
-One question can arise is why are we predicting the bounding box co-ordinates ? For each proposal, we have the location and why can't we use that location as our predicted box coordinates ?
+One question can arise is why are we predicting the bounding box co-ordinates ? For each proposal, we have the location and why can't we use that location as our predicted box coordinates ?. That is why can't we say proposal co-ordinates is my bounding box prediction ?
 This is a valid question and the reason is the proposals co-ordinates are usually not that accurate. Having a bounding box regressor usually improves the score. But we don't discard the proposal co-ordinates totally. We use them as the base and then only predict the offsets. Then the final predicted box co-ordinates can be written as function of $f(proposal,  offset)$. More details are given below
 
 With this we conclude forward pass for a single image in fast-rcnn
