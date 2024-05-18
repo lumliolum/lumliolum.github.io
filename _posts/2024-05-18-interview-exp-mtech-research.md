@@ -12,7 +12,7 @@ The interview was on May 13th. Previous years they used to take test and then th
 
 There were two professors of which I recognized one of them was Prof. Shalabh Bhatnagar (I2) (don't know about second professor).
 
-I1: Read my details from his laptop. Contained my btech, my work experience etc and asked me to confirm it ?
+I1: Read my details from his laptop. It was about my btech, my work experience etc and asked me to confirm it ?
 
 Once the confirmation,
 
@@ -156,14 +156,30 @@ M: I told them to give sometime as I don't know this. After some thought, I was 
 
 I1: Lets conclude the interview. But do think about this question.
 
-The last one was kind of tricky. Like if the function has uncountable infinite jumps, then it is continous (not sure though but this what I felt), but then if function is continous then it will have zero jumps. This is where I got stuck, so was not able to answer at all.
+The last one was kind of tricky. Like if the function has uncountable infinite jumps, then it is continous (not sure though but this what I feel), but then if function is continous then it will have zero jumps. This is where I got stuck, so was not able to answer at all.
 
 ### FINAL THOUGHTS
 
-Overall I felt that interview went well. Like mostly I2 was very friendly, he was mostly smiling. For example at the end he asked me if I have applied at other places, I told him that I applied to IIT-B, then he asked which one I will prefer. I told him that I will prefer iisc, then he with a smile asked "All your statements are true ?" (I guess he was also hinting that I wanted to PhD, but then opting for Mtech Research and all the statements I made about choosing Mtech Research over PhD.). Just after the end, I was confident about my performance and thought I will get selected.
+Overall I felt that interview went well. Like mostly I1 was very friendly, he was mostly smiling. For example at the end he asked me if I have applied at other places, I told him that I applied to IIT-B, then he asked which one I will prefer. I told him that I will prefer iisc, then he with a smile asked "All your statements are true ?" (I guess he was also hinting that I wanted to PhD, but then opting for Mtech Research and all the statements I made about choosing Mtech Research over PhD.). Also in terms of experience, I also felt very good while giving the interview. I felt that professors and I were in good sync. Just after the end, I was confident about my performance and thought I will get selected.
 
-On 18th May morning (same day writing this blog), they published the provisonal list in the website and I was not in the list. To be honest, I was really sad, don't know what went wrong. Even now, I feel that my interview went well, I understand that it was not perfect but it was good. There were some places that professor had to give hint (like in question of eigenvalues and eigenvectors), but I didn't see that as very bad sign (may be because of this they didn't select but not sure though). I felt that I should write an email asking for what was the reason and all that, then controlled myself and at the end didn't write it. (To be honest, it will not change anything other than releasing my sadness and frustration.)
+On 18th May morning (same day writing this blog), they published the provisonal list in the website and I was not in the list. To be honest, I was really sad, don't know what went wrong. Even now, I feel that my interview went well, I understand that it was not perfect but it was good. There were some places that professor had to give hints (like in question of eigenvalues), but I didn't see that as very bad sign (may be because of this they didn't select but not sure though). I felt that I should write an email asking for what was the reason and all that, then controlled myself and at the end didn't write it. (To be honest, it will not change anything.)
 
 ## CDS
 
 The interview was on May 17th. It had two parts, one was hacker-earth test and followed by the interview.
+
+The hackerearth test (had to give the round in one of the department computer lab) had 5 MCQ's and 1 programming question. Each MCQ was for 5 marks and programming question was for 15 marks. Overall it was 40 marks. I will write the questions that I remember.
+
+### HACKER-EARTH TEST
+
+Q1. Plot the graph of $f(x) = sin(x)log(|x|)$
+
+A: It had really confusing options (two options were very close).
+
+Q2. 
+
+Q3. Question related to indepedent vectors
+
+Q4. question related to bayes theorem.
+
+Q5. Probability of A winning a game against B is 0.52. They
