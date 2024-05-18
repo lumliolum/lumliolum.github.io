@@ -51,7 +51,7 @@ I2: Can you tell us how to find eigenvalues and eigenvectors ?
 M: I have mentioned that we can rewrite the equation as $(A - \lambda I)x = 0$.
 Here, $x = 0$ satisfies the equation but we are not interested where eigenvector is zero. We are interested in values of $\lambda$ where eigenvector is not zero. So due to this we can write $\lvert A - \lambda I \rvert = 0$.
 
-If this not the case, then A - \lambda I$ will be invertible making $x = 0$. The above equation is a polynomial of degree $n$ (where A is $n \times n$ matrix).
+If this not the case, then $A - \lambda I$ will be invertible making $x = 0$. The above equation is a polynomial of degree $n$ (where A is $n \times n$ matrix).
 
 As, $\lambda$ is a root of a polynomial, it can be a real value or complex value. Once we found the eigenvalue, we can always find the corresponding eigenvectors. Also pointed if $x$ is eigenvector, then $2x$ is also a eigenvector. Here I have clarified in more detail, that we usually define eigenvectors are the vectors which when multiplied by matrix $A$ don't change their direction but only change the length. The reason I didn't define it like this because I particularly don't like this definition as it is possible that eigenvalue can be a complex number and when were multiplying a complex number, it will change the direction.
 
