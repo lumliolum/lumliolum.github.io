@@ -10,7 +10,7 @@ Here we will discuss about faster rcnn in more detail.
 
 Faster RCNN was introduced in less than a year after Fast RCNN. It is better, both in terms of speed and performance than Fast RCNN.
 
-Even though the original paper was released, there were lot of updates on top of original work. One of them was Mask RCNN which was built on top of faster RCNN. Mask RCNN is basically used for instance segmentation but it also introduces ROI Align layer in the place of ROI Pool layer.
+Even though the original paper was released 5-6 years back, there were lot of updates on top of original work. One of them was Mask RCNN which was built on top of faster RCNN. Mask RCNN is basically used for instance segmentation but it also introduces ROI Align layer in the place of ROI Pool layer.
 
 Going through each of the update and also mentioning the historical timeline will be difficult (another defence I have is that I don't know all the updates). Instead what I will do here is mention the details of what I feel the stable version of faster rcnn.
 
