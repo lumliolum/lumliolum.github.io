@@ -225,7 +225,7 @@ M: I do have some idea on this topic. Like other than completing a sentence, we 
 
 It was not that smooth answer and this set the tone of interview. From this point onwards, it was totally downhill.
 
-I1: What do you think important challenges in NLP ?
+I1: What do you think the important challenges in NLP ?
 
 M: I started talking about the history of NLP. Like till 2016, we were using RNN, LSTM etc then after that transformers were introduced. The pretraining and finetuning paradigm was working really good in-case of transformers.
 
@@ -245,9 +245,9 @@ M: I said RNN's, LSTM's they are more suitable and also I feel that these models
 
 I1: So do RNN's, LSTM's perform very well on this task ?
 
-M: I said no, they don't perform (I didn't tell this the interview but I was gesturing that even they don't perform, this is the direction we should take. But then don't know if the professor understood what I wanted to say)
+M: I said no, they don't perform (Also I was gesturing that even they don't perform, this is the direction we should take. But then don't know if the professor understood what I wanted to say)
 
-Till here, the interview was downhill. Like there was no sync. Also the reason I started by telling the history of NLP was to tell that even though we are performing really good with transformers etc but we don't have a view like state. (in case of RNN, LSTM we have)
+Till here, the interview was downhill. Like there was no sync. Also the reason I started by telling the history of NLP was to tell that even though we are performing really good with transformers etc but we don't have a view like state which gets updated after each input. (in case of RNN, LSTM we have)
 
 I1: Can you tell me about what is word2vec and how do we train them?
 
