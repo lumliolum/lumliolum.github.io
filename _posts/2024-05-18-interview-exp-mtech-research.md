@@ -211,9 +211,9 @@ After the exam they announced the results, and I was selected for the interview.
 
 ### INTERVIEW
 
-As per my lab preferences I have selected NLP as my first preference and VCL as second preference. My highest preference was NLP, and also I didn't prepare much for VCL. So I got assigned to panel where NLP Lab professor was present (there was another professor but he was not there in the panel when I went)
+As per my lab preferences I have selected NLP as my first preference and VCL as second preference. My highest preference was NLP, and also I didn't prepare much for VCL. So I got assigned to panel where NLP Lab professor was present (there was another professor but he was not there in the panel when my interview was going on)
 
-Before starting the interview, professor (danish pruthi) confirmed my details like my btech, current organization etc.
+Before starting the interview, professor (Danish Pruthi) confirmed my details like my btech, current organization etc.
 
 I1: You have gone through the research topics of the lab right? Which of them you are interested in ?
 
@@ -315,6 +315,6 @@ Like, when two waves are combined at a point, it is possible that they nullify t
 
 Because of this, when asked for the interview with VCL lab, I said no. I was not all in good mood and also VCL professor mentioned in website that students who are applying should atleast go through one paper from his recent publications (which I didn't. I tried reading one but didn't understand anything). At that time, I also thought that I will be mostly selected in CSA which in hindsight was wrong call.
 
-Also the maths question was cherry on the cake. Like it took from zero to negative very fast. Once I was outside, I was discussing with another student and he told it should be $\frac{16!}{8!8!}$. The reason is that we need 8 right and 8 up to reach the top. So number of ways of rearranging will be $\frac{16!}{8!8!}$. I don't know if I could have figured this out when given more time (mostly no, because of how the interview was going, I don't think that I could have thought this way). In my defence, I thought that professor could have asked more questions in maths, but okay I can't say anything as I messed up.
+Also the maths question was cherry on the cake. Like it took from zero to negative very fast. Once I was outside, I was discussing with another student and he told it should be $\frac{16!}{8!8!}$. The reason is that we need 8 right and 8 up to reach the top. So number of ways of rearranging will be $\frac{16!}{8!8!}$. I don't know if I could have figured this out when given more time (mostly no, because of how the interview was going, I don't think that I could have thought this way). In my defence, I thought that professor could have asked more questions in maths (I felt that may be I could have created good impression if asked more  questions and may be I could have solved one of them), but I can't say much as I messed up.
 
 On the same day (17th May 11:00 pm or something), they published the results in the website. I was not present in the list. So overall, things went wrong very fast :).
