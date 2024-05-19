@@ -99,19 +99,21 @@ x \\
 \end{pmatrix}
 $$
 
-Now I took some time trying to figure out what are other eigenvalues.
+Now I took some time trying to figure out what are other eigenvalues (meanwhile professor gave some direction).
 
 I2: what properties do you know about eigen values ?
 
 M: I told that sum of eigenvalues will be trace of matrix and product of eigenvalues will be determinant. So here we will have
 
 $$
-\lambda_{2} + \lambda_{3} = 0 \\
+\lambda_{2} + \lambda_{3} = 0
+$$
 
+$$
 \lambda_{2} \lambda_{3} = -1
 $$
 
-which gives $\lambda_{2} = 1$ and $\lambda_{3} = -1$. (The reason I was taking some time before was I calculated the determinant as 0 (which is wrong). So because of this I concluded that one eigenvalue should be 0, but the matrix has independent columns, so it can't have eigenvalue zero. this is where I got stuck.)
+which gives $\lambda_{2} = 1$ and $\lambda_{3} = -1$. (The reason I was taking some time before was because I calculated the determinant as 0 (which is wrong). So because of this I concluded that one eigenvalue should be 0, but the matrix has independent columns, so it can't have eigenvalue zero. this is where I got stuck.)
 
 With this linear algebra questions were completed. the other professor took over.
 
@@ -273,7 +275,7 @@ M: I told him that there is a famous example. That is we take four words "man", 
 
 I1: That is okay, but can I get a single metric to compare ? For example, let's suppose that I have trained another set of embeddings using my algorithm. How do you compare it ?
 
-M: I first told we can create multiple pairs like this then check the performance on these pairs but also asked him for some time to think. After some thought, I told that we can construct tasks like predicting a next word in a sentence. Based on performance on these tasks we can take a call which algorithm is better.
+M: I first told we can create multiple pairs like this then check the performance on these pairs but also asked him for some time to think. After some thought, I told that we can construct tasks like predicting a next word in a sentence. Based on performance on these tasks we can take a call which embeddings are better.
 
 I1: Can you explain in detail ?
 
@@ -281,4 +283,38 @@ M: I told that if we define a task like "predicting a next word in the sentence.
 
 Here, I wanted to point out that the task I chose was just an example. We can define multiple tasks, or other tasks and then can take a decision. I am not sure if professor understood this is what I was saying or was thinking that "predicting a next word in a sentence" is only the task that we have to use. (In hindsight, I should have mentioned in more detail, but okay.)
 
-I1: 
+I1: Do you think these vectors have bias ?
+
+M: I told that mostly yes. There is famous example where it shown that when asked about crime, then the model usually predicts a black person doing a crime rather than white person. I feel that this is because of the bias present in the dataset.
+
+I1: Does these models amplify the bias in the dataset, or they keep same or they reduce ?
+
+M: They usually keep the same. Also, I am not able to find good argument of why they amplify the bias present in the dataset.
+
+This is where I got another one wrong. In hindsight, I should have said that they amplify the bias but the problem is I don't know why they amplify (based on data they amplify but not sure why that is the case).
+
+I1: okay. Let's move a maths question. Let's suppose I have a chess board, and I wanted to move from (0, 0) to (8, 8). I have only two options that is right and up. So in how many ways I can reach the destination
+
+M: I told him one approach where we could solve use recursion.
+
+I1: That's okay if we want to write a program. Can you give mathematical formula for number of ways.
+
+M: I asked for some time but couldn't figure it out. Then again asked for some more time but
+
+I1: Let's conclude the interview. Also, do you want to get interviewed for VCL lab?
+
+M: I told him no sir, and that my interview in CSA went well, so may be I will be looking for work related to NLP there if I am not selected here. (Another mess-up I did).
+
+There was some other general questions but that also went in wrong direction.
+
+### FINAL THOUGHTS
+
+Overall, the interview was below average (or bad). For the whole interview, there was no sync. There was no resonance at all.
+
+Like, when two waves are combined at a point, it is possible that they nullify their effect because one has amplitude in one direction and other in opposite direction. I felt the same way in interview, our thoughts were opposite. Because of this, the total interview had very negative vibe.
+
+Because of this, when asked for the interview with VCL lab, I said no. I was not all in good mood and also VCL professor mentioned in website that students who are applying should atleast go through one paper from his recent publications (which I didn't. I tried reading one but didn't understand anything). At that time, I also thought that I will be mostly selected in CSA which in hindsight was wrong call.
+
+Also the maths question was cherry on the cake. Like it took from zero to negative very fast. Once I was outside, I was discussing with another student and he told it should be $\frac{16!}{8!8!}$. The reason is that we need 8 right and 8 up to reach the top. So number of ways of rearranging will be $\frac{16!}{8!8!}$. I don't know if I could have figured this out when given more time (mostly no, because of how the interview was going, I don't think that I could have thought this way). In my defence, I thought that professor could have asked more questions in maths, but okay I can't say anything as I messed up.
+
+On the same day (17th May 11:00 pm or something), they published the results in the website. I was not present in the list. So overall, things went wrong very fast :).
