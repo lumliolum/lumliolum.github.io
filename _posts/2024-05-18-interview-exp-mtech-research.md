@@ -69,7 +69,7 @@ A = \begin{pmatrix}
 \end{pmatrix}
 $$
 
-M: I told him that the matrix is a permutation matrix. After some time, I recognized it as symmetric matrix and told that eigen values will be real.
+M: I told him that the matrix is a permutation matrix. After some time, I recognized it as symmetric matrix and said eigen values will be real.
 
 I2: okay, can you find them ?
 
@@ -123,7 +123,7 @@ M: I drew the sigmoid function which is $F_{X}(x) = \frac{1}{1 + e^{-x}}$.
 
 I1: According to your graph, CDF is continous. will it always be the case ?
 
-M: I told that no, I have plotted the graph for a continous random variable. For a discrete random variable the CDF will be not be continous.
+M: I said no, I have plotted the graph for a continous random variable. For a discrete random variable the CDF will be not be continous.
 
 I1: Can you draw the cdf for a geometric distribution ?, Before that can you tell me what is a geometric distribution.
 
@@ -139,7 +139,7 @@ The one I have written here is probability mass function, then I drew the graph 
 
 I1: Can you tell the properties of CDF ?
 
-M: As you can see from graph, CDF is always between 0 to 1, that is $ 0\leq F_{X}(x) \leq 1$. Another thing is that at $x = + \infty$, $F_{X}(x)$ will be 1 and at $x = - \infty$, $F_{X}(x)$ will be 0. Other than that it is non-decreasing function (it took some time for me get this term. I first told that it is increasing function, then corrected saying that function that cannot decrease). Also it is right continous.
+M: As you can see from graph, CDF is always between 0 to 1, that is $ 0\leq F_{X}(x) \leq 1$. Another thing is that at $x = + \infty$, $F_{X}(x)$ will be 1 and at $x = - \infty$, $F_{X}(x)$ will be 0. Other than that it is non-decreasing function (it took some time for me get this term. I first said it is increasing function, then corrected saying that function that cannot decrease). Also it is right continous.
 
 I1: (by pointing to the graph) For the geometric distribution, can you tell at what points these jumps happen ?
 
@@ -227,21 +227,21 @@ M: I started talking about the history of NLP. Like till 2016, we were using RNN
 
 I1: I know about the history, can you tell about the challenges.
 
-M: After some thought, I told that solving mathematical problems is something that NLP applications are not good at.
+M: After some thought, I said solving mathematical problems is something that NLP applications are not good at.
 
 Here, he asked can you give an example. I told him that if you give a maths problem to chatgpt (like problem of integration etc), there are high chances that it will not be correct.
 
 I1: Can you tell how do we solve this problem ?
 
-M: I told that I feel we are solving the problem in a wrong way. That is for example if you want to solve a integration problem, you should know what is a function, what is a limit, what is a derivative and then what is the integral. So ideally there should be state where we should update the knowledge. Like first updating with function, then limits, derivates etc. This way of updating state is not present in transformers (which the modern LLM's use) and I feel that if we do this then we can solve this.
+M: I feel we are solving the problem in a wrong way. That is for example if you want to solve a integration problem, you should know what is a function, what is a limit, what is a derivative and then what is the integral. So ideally there should be state where we should update the knowledge. Like first updating with function, then limits, derivates etc. This way of updating state is not present in transformers (which the modern LLM's use) and I feel that if we do this then we can solve this.
 
 I1: So which of models have this property ?
 
-M: I told that RNN's, LSTM's they are more suitable and also I feel that these models are more intuitive, that is we have internal state which get's updated after input from each timestep.
+M: I said RNN's, LSTM's they are more suitable and also I feel that these models are more intuitive, that is we have internal state which get's updated after input from each timestep.
 
 I1: So do RNN's, LSTM's perform very well on this task ?
 
-M: I told that no they don't perform (I didn't tell this the interview but I was gesturing that even they don't perform, this is the direction we should take. But then don't know if the professor understood what I wanted to say)
+M: I said no, they don't perform (I didn't tell this the interview but I was gesturing that even they don't perform, this is the direction we should take. But then don't know if the professor understood what I wanted to say)
 
 Till here, the interview was downhill. Like there was no sync. Also the reason I started by telling the history of NLP was to tell that even though we are performing really good with transformers etc but we don't have a view like state. (in case of RNN, LSTM we have)
 
@@ -281,7 +281,7 @@ Here, I wanted to point out that the task I chose was just an example. We can de
 
 I1: Do you think these vectors have bias ?
 
-M: I told that mostly yes. There is famous example where it shown that when asked about crime, then the model usually predicts a black person doing a crime rather than white person. I feel that this is because of the bias present in the dataset.
+M: I said mostly yes. There is famous example where it shown that when asked about crime, then the model usually predicts a black person doing a crime rather than white person. I feel that this is because of the bias present in the dataset.
 
 I1: Does these models amplify the bias in the dataset, or they keep same or they reduce ?
 
