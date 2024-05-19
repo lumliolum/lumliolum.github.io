@@ -59,6 +59,10 @@ I2: Is it possible to find the eigenvalues for all matrix ?
 
 M: I said yes, as eigenvalues are roots of polynomial and we can always find roots of the polynomial. It is possible that they are complex, but they will always exist.
 
+I2: Can you give me a matrix, for which all eigen values are zero ?
+
+M: After some thought, I told him that it will be zero matrix. The polynomial for this matrix will be $\lambda^{n} = 0$ which has all $0$ as their root.
+
 I2: Can you find the eigenvalue and eigenvectors for the following matrix. You should not solve the polynomial but use properties. Also can you tell me if eigen values are real or complex ?
 
 $$
