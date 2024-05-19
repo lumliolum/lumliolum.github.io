@@ -179,7 +179,7 @@ The hackerearth test (had to give the round in one of the department's computer 
 
 ### HACKER-EARTH TEST
 
-Q1. Plot the graph of $f(x) = sin(x)log(|x|)$
+Q1. Plot the graph of $f(x) = sin(x)log(\lvert x \rvert)$
 
 A: It had really confusing options (two options were very close).
 
