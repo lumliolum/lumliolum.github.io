@@ -267,7 +267,7 @@ One more thing to note is that I didn't write the denominator term at first and 
 
 I1: The summation in the denominator is over the whole vocabulary. Don't you think computing it every time will be very expensive.
 
-M: yes, and this is where word2vec paper introduces a algorithm called negative sampling which will kind of approximate the summation (more precisely it will inntroduce another objective function). As, I was about to explain this in detail, the professor asked me to stop.
+M: yes, and this is where word2vec paper introduces a algorithm called negative sampling which will kind of approximate the summation (more precisely it will introduce another objective function). As, I was about to explain this in detail, the professor asked me to stop.
 
 I1: That's okay, now can you tell how do you know if your embeddings are good ?
 
