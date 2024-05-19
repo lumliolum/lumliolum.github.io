@@ -169,8 +169,11 @@ The second part is regression loss. This layer predicts the offsets that when ad
 We then define the offsets as $(dx, dy, dw, dh)$ as follows
 
 $$ G_{x} = P_{w}dx + P_{x} $$
+
 $$ G_{y} = P_{y}dy + P_{y} $$
+
 $$ G_{w} = P_{w}e^{-dw} $$
+
 $$ G_{h} = P_{h}e^{-dh} $$
 
 So instead of predicting $(G_{x}, G_{y}, G_{w}, G_{h})$ we predict $(dx, dy, dw, dh)$ for the regression FC layer.
