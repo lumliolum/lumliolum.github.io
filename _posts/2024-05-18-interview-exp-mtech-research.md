@@ -34,7 +34,7 @@ M: I told him that I wanted to work in the area of NLP, (or in deep learning).
 
 I1: With a smile he said, you want to work on trendy things ?
 
-M: I was just calm, don't know what to say.
+M: I was just calm and was smiling, don't know what to say. (I felt that professor was just pulling my leg and it was more of joke)
 
 I1: As you are applying for a research position, we expect you to be good with fundamental topics. So let's start with linear algebra.
 
