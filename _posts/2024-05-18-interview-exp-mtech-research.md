@@ -10,7 +10,7 @@ Recently, I appeared for the interview at CSA and CDS of IISC for MTech Research
 
 The interview was on May 13th. Previous years they used to take test and then the interview but this time they announced that they will only take the interview.
 
-There were two professors of which I recognized one of them was Prof. Shalabh Bhatnagar (I2) (don't know about second professor).
+There were two professors of I1 and I2. (I recognized one of them)
 
 I1: Read my details from his laptop. It was about my btech, my work experience etc and asked me to confirm it ?
 
@@ -49,19 +49,19 @@ Here, $x = 0$ satisfies the equation but we are not interested where eigenvector
 
 If this not the case, then $A - \lambda I$ will be invertible making $x = 0$. The above equation is a polynomial of degree $n$ (where A is $n \times n$ matrix).
 
-As, $\lambda$ is a root of a polynomial, it can be a real value or complex value. Once we found the eigenvalue, we can always find the corresponding eigenvectors. Also pointed if $x$ is eigenvector, then $2x$ is also a eigenvector. Here I have clarified in more detail, that we usually define eigenvectors are the vectors which when multiplied by matrix $A$ don't change their direction but only change the length. The reason I didn't define it like this because I particularly don't like this definition as it is possible that eigenvalue can be a complex number and when we are multiplying by a complex number, it will change the direction.
+As, $\lambda$ is a root of a polynomial, it can be a real value or complex value. Once we found the eigenvalue, we can always find the corresponding eigenvectors. Also pointed if $x$ is eigenvector, then $2x$ is also a eigenvector. Here I have clarified in more detail, that we usually define eigenvectors are the vectors which when multiplied by matrix $A$ don't change their direction but only change their length. The reason I didn't define it like this because I particularly don't like this definition as it is possible that eigenvalue can be a complex number and when we are multiplying by a complex number, it will change the direction.
 
-I2: You said that if $x$ is eigenvector, then $2x$ is a eigenvector. Is $2\lambda$ is an eigenvalue if $\lambda$ is eigenvalue.
+I2: You said that if $x$ is eigenvector, then $2x$ is a eigenvector. Is $2\lambda$ an eigenvalue if $\lambda$ is eigenvalue.
 
 M: No, it will be not an eigenvalue. Like it should satisfy the polynomial, but if you see $2\lambda$ will not satisfy the polynomial.
 
-I2: Is it possible to find the eigenvalues for all matrix ?
+I2: Is it possible to find the eigenvalues for any matrix ?
 
 M: I said yes, as eigenvalues are roots of polynomial and we can always find roots of the polynomial. It is possible that they are complex, but they will always exist.
 
 I2: Can you give me a matrix, for which all eigen values are zero ?
 
-M: After some thought, I told him that it will be zero matrix. The polynomial for this matrix will be $\lambda^{n} = 0$ which has all $0$ as their root.
+M: After some thought, I told him that it will be zero matrix. The polynomial for this matrix will be $\lambda^{n} = 0$ which has 0 as its only root.
 
 I2: Can you find the eigenvalue and eigenvectors for the following matrix. You should not solve the polynomial but use properties. Also can you tell me if eigen values are real or complex ?
 
@@ -213,7 +213,7 @@ After the exam they announced the results, and I was selected for the interview.
 
 As per my lab preferences I have selected NLP as my first preference and VCL as second preference. My highest preference was NLP, and also I didn't prepare much for VCL. So I got assigned to panel where NLP Lab professor was present (there was another professor but he was not there in the panel when my interview was going on)
 
-Before starting the interview, professor (Danish Pruthi) confirmed my details like my btech, current organization etc.
+Before starting the interview, professor confirmed my details like my btech, current organization etc.
 
 I1: You have gone through the research topics of the lab right? Which of them you are interested in ?
 
@@ -241,7 +241,7 @@ M: I feel we are solving the problem in a wrong way. That is for example if you 
 
 I1: So which of models have this property ?
 
-M: I said RNN's, LSTM's they are more suitable and also I feel that these models are more intuitive, that is we have internal state which get's updated after input from each timestep.
+M: I said RNN's, LSTM's as they are more suitable and also I feel that these models are more intuitive, that is we have internal state which get's updated after input from each timestep.
 
 I1: So do RNN's, LSTM's perform very well on this task ?
 
