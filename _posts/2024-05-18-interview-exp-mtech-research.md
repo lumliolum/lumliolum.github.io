@@ -167,7 +167,7 @@ The last one was kind of tricky. Like if the function has uncountable infinite j
 
 ### FINAL THOUGHTS
 
-Overall I felt that interview went well. Like I1 was very friendly, he was mostly smiling. For example at the end he asked me if I have applied at other places, I told him that I applied to IIT-B, then he asked which one I will prefer. I told him that I will prefer iisc, then he with a smile asked "All your statements are true ?" (I guess he was also hinting that I wanted to PhD, but then opting for Mtech Research and all the statements I made about choosing Mtech Research over PhD.). Also in terms of experience, I also felt very good (kind of positive vibe) while giving the interview. I felt that professors and I were in good sync. Just after the end, I was confident about my performance and thought I will get selected.
+Overall I felt that interview went well. Like I1 was very friendly, he was mostly smiling. For example at the end he asked me if I have applied at other places, I told him that I applied to IIT-B, then he asked which one I will prefer. I told him that I will prefer iisc, then he with a smile asked "All your statements are true ?" (I guess he was also hinting that I wanted to PhD, but then opting for Mtech Research and all the statements I made about choosing Mtech Research over PhD.). I just smiled (felt like he was just pulling my leg). Also in terms of experience, I also felt very good (kind of positive vibe) while giving the interview. I felt that professors and I were in good sync. Just after the end, I was confident about my performance and thought I will get selected.
 
 On 18th May morning (same day writing this blog), they published the provisonal list in the website and I was not in the list. To be honest, I was really sad, don't know what went wrong. Even now, I feel that my interview went well, I understand that it was not perfect but it was good. There were some places that professor had to give hints (like in question of eigenvalues), but I didn't see that as very bad sign (may be because of this they didn't select but not sure though). I felt that I should write an email asking for what was the reason and all that, but at the end didn't write it. (To be honest, it will not change anything.)
 
@@ -293,7 +293,7 @@ M: They usually keep the same. Also, I am not able to find good argument of why 
 
 This is where I got another one wrong. In hindsight, I should have said that they amplify the bias but the problem is I don't know why they amplify (based on data they amplify but not sure why that is the case).
 
-I1: okay. Let's move a maths question. Let's suppose I have a chess board, and I wanted to move from (0, 0) to (8, 8). I have only two options that is right and up. So in how many ways I can reach the destination
+I1: okay. Let's move to a maths question. Let's suppose I have a chess board, and I wanted to move from (0, 0) to (8, 8). I have only two options that is right and up. So in how many ways I can reach the destination
 
 M: I told him one approach where we could solve use recursion.
 
@@ -313,7 +313,7 @@ Overall, the interview was below average (or bad). For the whole interview, ther
 
 Like, when two waves are combined at a point, it is possible that they nullify their effect because one has amplitude in one direction and other in opposite direction. I felt the same way in interview, our thoughts were opposite. Because of this, the total interview had very negative vibe.
 
-Because of this, when asked for the interview with VCL lab, I said no. I was not all in good mood and also VCL professor mentioned in website that students who are applying should atleast go through one paper from his recent publications (which I didn't. I tried reading one but didn't understand anything). At that time, I also thought that I will be mostly selected in CSA which in hindsight was wrong call.
+Also when asked for the interview with VCL lab, I said no. I was not all in good mood and also VCL professor mentioned in website that students who are applying should atleast go through one paper from his recent publications (which I didn't. I tried reading one but didn't understand anything). At that time, I also thought that I will be mostly selected in CSA which in hindsight was wrong call.
 
 Also the maths question was cherry on the cake. Like it took from zero to negative very fast. Once I was outside, I was discussing with another student and he told it should be $\frac{16!}{8!8!}$. The reason is that we need 8 right and 8 up to reach the top. So number of ways of rearranging will be $\frac{16!}{8!8!}$. I don't know if I could have figured this out when given more time (mostly no, because of how the interview was going, I don't think that I could have thought this way). In my defence, I thought that professor could have asked more questions in maths (I felt that may be I could have created good impression if asked more  questions and may be I could have solved one of them), but I can't say much as I messed up.
 
