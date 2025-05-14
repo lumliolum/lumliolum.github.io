@@ -67,7 +67,7 @@ Before going I want to address some points
 - The reason I skipped important parts of RCNN is because I feel that they are not useful. Also from my point of view   , RCNN is not a simple and direct model and has lot of complications. In simple words, it's chaos.
 - In terms of that fast rcnn is more simple and direct. Lot of back & forth steps from RCNN is removed.
 
-Fast RCNN is created from RCNN, but it's fast. RCNN takes 9.8 seconds while fast RCNN takes 0.1 seconds at test time (See table 4)
+Fast RCNN is created from RCNN, but it's fast. RCNN takes 9.8 seconds per image while fast RCNN takes 0.1 seconds per image at test time (See table 4). Note that this 0.1 seconds is excluding the selective search proposal which usually takes 2 seconds per image.
 
 One of the main reason why RCNN is slow is because feature extraction is done for each proposal. For example, if we have 100 proposals, then each proposal is cropped and passed to CNN for feature extraction. This is where fast-rcnn optimizes
 
@@ -136,7 +136,7 @@ Output of ROI Pooling is calculated for each proposal, flattened and then they a
 - First one has $(N + 1)$ as the output size where $N$ denotes the number of classes and $1$ is for background class. Applying softmax will give us class probabilties.
 - Second one has $4N$ as the output size. These denote the bounding box coordinates for each class (they are not exactly coordinates). For backgroound class, we will not predict the box coordinates which is obvious.
 
-> One question can arise is why are we predicting the bounding box co-ordinates ? For each proposal, we have the location and why can't we use that location as our predicted box coordinates ?. That is why can't we say proposal co-ordinates is my bounding box prediction ?
+> One question can arise is why are we predicting the bounding box co-ordinates ? For each proposal, we have the location and why can't we use that location as our predicted box coordinates ?. That is, why can't we say proposal co-ordinates is my bounding box prediction ?
 
 This is a valid question and the reason is the proposals co-ordinates are usually not that accurate. Having a bounding box regressor usually improves the score. But we don't discard the proposal co-ordinates totally. We use them as the base and then only predict the offsets. Then the final predicted box co-ordinates can be written as function of $f(proposal,  offset)$. More details are given below
 
@@ -144,7 +144,7 @@ With this we conclude forward pass for a single image in fast-rcnn
 
 ### TRAINING
 
-Given that we have an idea of how forward pass works for fast-rcnn, then obivous next question should be how to train the model.
+Given that we have an idea of how forward pass works for fast-rcnn, then obivous next question should be how to train the model ?
 
 Before that I want to remind once again that we have training data which contains images with ground truth. The ground truth is set of rectangular boxes and each box has a label assigned to it.
 
@@ -156,7 +156,7 @@ So in the sense, using training data (image, ground truth, proposals generated o
 
 The way to do this is as follows
 
-- For a proposal, if its maximum IoU with any of the ground truth box is greater than 0.5, then we call it as positive proposal. If there are multiple such ground truths, then the one with the highest IoU is chosen and assigned to the proposal. This means if $gt$ is ground truth assigned to proposal $p$, then our pair becomes $(X_{p}, y_{gt}, b_{gt})$ where $y_{gt}$ is the ground truth class of $gt$ and $b_{gt}$ is the ground truth bounding box co-ordinates.
+- For a proposal, if the maximum IoU with all of the ground truths box is greater than 0.5, then we call it as positive proposal. If there are multiple such ground truths, then the one with the highest IoU is chosen and assigned to the proposal. This means if $gt$ is ground truth assigned to proposal $p$, then our pair becomes $(X_{p}, y_{gt}, b_{gt})$ where $y_{gt}$ is the ground truth class of $gt$ and $b_{gt}$ is the ground truth bounding box co-ordinates.
 - For a proposal, if the maximum IoU with ground truth is in the interval $(0.1, 0.5]$, then these proposals are called as negative proposal. They have $y_{p}$ as background class and no box coordinates.
 - The remaining proposals are ignored.
 
@@ -164,7 +164,7 @@ Now that we have $(X, y, b)$ we will discuss how to calculate the loss function.
 
 Classification loss is simply the cross-entropy between predicted probabilties and ground truth for that proposal (It will be over $N + 1$ outputs).
 
-The second part is regression loss. This layer predicts the offsets that when added to proposal will give the ground truth box. That is denote the proposal as $(P_{x}, P_{y}, P_{w}, P_{h})$ and ground truth as $(G_{x}, G_{y}, G_{w}, G_{h})$ where subscript $(x, y)$ denote the center coordinates. The proposal co-ordinates are usually given by region proposal algorithm (here it will be selective search).
+The second part is regression loss. This layer predicts the offsets that when added to proposal will give the ground truth box. That is denote the proposal box as $(P_{x}, P_{y}, P_{w}, P_{h})$ and ground truth box as $(G_{x}, G_{y}, G_{w}, G_{h})$ where subscript $x, y$ denote the center coordinates. The proposal co-ordinates are usually given by region proposal algorithm (here it will be selective search).
 
 We then define the offsets as $(dx, dy, dw, dh)$ as follows
 
@@ -206,7 +206,7 @@ The following steps describe how the testing is done for an image
 
 - Run the selective search on the image to get 2000 proposals.
 - Pass the image to CNN network to get the feature map. Calculate the ROI Pooling output for all the proposals.
-- Pass the pooling output to get class probability and bounding box co-ordinates. The confidence score for the box is the probability score
+- Pass the pooling output to get class probability and bounding box co-ordinates. The confidence score for the box is the probability score.
 - Perform the non maximum supression for each class separately using the confidence scores.
 
 ## CONCLUSION
