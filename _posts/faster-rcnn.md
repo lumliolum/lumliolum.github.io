@@ -29,6 +29,8 @@ The architecture of Faster RCNN is given below
 
 ![faster-rcnn-architecture.png](/images/2-stage-object-detection/faster-rcnn-architecture.png)
 
+Obsever that 
+
 ### RPN
 
 The purpose of RPN is to take an image and output set of rectangular object proposals with objectness score.
