@@ -107,4 +107,4 @@ I feel that only reviewer A and reviewer C understood our contribution. C didn't
 I'm also thankful to C because he gave a really good idea on how to generalize our theorems. So in real life, suppose I meet C -- I would have just said that you could have picked a lane.
 
 
-Note : All reviewers are referred as "he, his" etc. As it is easy to write for me.
+Note : All reviewers are referred as "he, his" etc. It is easy to write for me this way.
