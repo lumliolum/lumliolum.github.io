@@ -1,7 +1,7 @@
 ---
 layout: post
 title: ICML 2026 Submission Experience
-date: 2026-05-05
+date: 2026-05-10
 ---
 
 Recently, I submitted a paper to ICML 2026. I want to share my experience about the whole process. Before going ahead, I want to clarify that I'm not leading author of the paper (although I beleive that I did decent contribution) and paper was rejected. The opinions are totally mine and I'm not sure if my coauthors beleive the same.
@@ -78,7 +78,7 @@ Reviewer acknowledged the response and marked option (b) [partiall resolved and 
 
 We again responsed saying that the settings of parameter estimation that we consider are not just toy examples and have practical relevance by citing 3-4 prior works. We also said that our work is theoretical in nature and we have guarantees on the settings that we considered in the paper. because of this, we performed experiments on very controlled setting and showed that how our method is better. Also in the response, we once again pointed out how generative modeling framework is different and how conceputatlly is doesn't mean much to apply our method in generative modeling.
 
-In the end, he didn't fill the final justification and kept the score same (3 - weak accept).
+In the end, he didn't fill the final justification and kept the score same (3 -- weak accept).
 
 
 ## META REVIEW
@@ -107,4 +107,4 @@ I feel that only reviewer A and reviewer C understood our contribution. C didn't
 I'm also thankful to C because he gave a really good idea on how to generalize our theorems. So in real life, suppose I meet C -- I would have just said that you could have picked a lane.
 
 
-Note : All reviewers are referred as "he, his" etc. As it is write like this for me.
+Note : All reviewers are referred as "he, his" etc. As it is easy to write for me.
