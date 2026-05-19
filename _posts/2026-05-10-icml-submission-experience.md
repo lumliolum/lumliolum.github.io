@@ -83,7 +83,7 @@ In the end, he didn't fill the final justification and kept the score same (3 --
 
 ## META REVIEW
 
-On April 30, we got the notification that paper was rejected and main reason in the meta review was that "multiple reviewers remained unconvinced that the paper provides sufficient empirical breadth and practical relevance". Also, empirical evaluation is too narrow and it misses the recent baselines. Because of this, AC thinks that is paper in the current form is not ready and empirical support practical signifance is needed to justify the acceptance.
+On April 30, we got the notification that paper was rejected and main reason in the meta review was that "multiple reviewers remained unconvinced that the paper provides sufficient empirical breadth and practical relevance". Also, empirical evaluation is too narrow and it misses the recent baselines. Because of this, AC thinks that is paper in the current form is not ready, more empirical support and practical signifance is needed to justify the acceptance.
 
 Also, meta review appreciated our theoretical contribution.
 
@@ -94,9 +94,9 @@ Overall, the experience was not that good. I was kind of sad for some days even 
 
 Basically, our rejection was based on the comments given by D. Even though meta review says "multiple reviewers" which I think is false and only reviewer D had a difficulty with our experiment evaluation. I'm surprised that AC concluded that multiple reviewers had a problem with our experiments. Reviewer C didn't say that experiments were not good, he asked question related to it. 
 
-Another frustraing part was AC took comments of D who didn't fill the final justification. This was a compulsory action from D which he didn't perform. So I don't know - how can you take his comments.
+Another frustraing part was AC took comments of D who didn't write the final justification. This was a compulsory action from D which he didn't perform. So I don't know - how can you take his comments.
 
-In the first comment of D, he pointed out we are not comparing with recent baselines. When we asked for specific papers that he think that we missed - he didn't reply on this comment at all. In the end, meta review cites this as one of the reason (not even thinking that we asked for it and reviewer didn't reply). Just because we are comparing with a 2019 paper - doesn't mean that we are comparing with old method and not "recent baseline". What I feel that is this 2019 paper was the closest one to compare. There was another 2022 paper building on 2019, but that was on different direction. So till date, I think we didn't miss any recent papers.
+In the first comment of D, he pointed out we are not comparing with recent baselines. When we asked for specific papers that he think that we missed - he didn't reply on this comment at all. In the end, meta review cites this as one of the reason (not even thinking that we asked for it and reviewer didn't reply). Just because we are comparing with a 2019 paper - doesn't mean that we are comparing with old method and not "recent baseline". What I feel that is this 2019 paper was the closest one to compare. There was another 2022 paper building on 2019 paper, but that was on different direction. So till date, I think we didn't miss any recent papers.
 
 Also, I didn't understand the argument of practical signifance. We particularly selected our primary area as "Theory->Probabilistic Methods", to reflect the contribution we did. It doesn't make sense to reject this paper - based on empirical results. Its not that we are not running any experiments, just because we do parameter estimation in classical settings - doesn't mean its not practical enough.
 
@@ -104,6 +104,6 @@ The final and unsetting part of D was that he changed the option from (b) to (c)
 
 I feel that only reviewer A and reviewer C understood our contribution. C didn't take any decision and passed it to AC. Sometimes, I feel that C should have taken a side rather than passing to AC (For eg., should have decreased the score). In a world where C rejects the paper citing that one has rewrite a lot and it requires significant changes, I would have argued that it was very nitpicky, but could have got some closure with time. The reason I feel that C should have picked a lane is because he gave a confidence of 5.
 
-I'm also thankful to C because he gave a really good idea on how to generalize our theorems. So in real life, suppose I meet C -- I would have just said that you could have picked a lane.
+I'm also thankful to C because he gave a really good idea on how to generalize our theorems.
 
 Note : All reviewers are referred as "he, his" etc. It is easy to write for me this way.
