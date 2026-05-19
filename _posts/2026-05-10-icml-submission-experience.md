@@ -102,8 +102,8 @@ Also, I didn't understand the argument of practical signifance. We particularly 
 
 The final and unsetting part of D was that he changed the option from (b) to (c) overnight (according to our timezone). One could have changed after our response but he changed it before. So to be honest, I didn't like this behaviour at all.
 
-I feel that only reviewer A and reviewer C understood our contribution. C didn't take any decision and passed it to AC. Sometimes, I feel that C should have taken a side rather than passing to AC (For eg., should have decreased the score). In a world where C rejects the paper citing that one has rewrite a lot and it requires significant changes, I would have argued that it was very nitpicky, but could have got some closure with time. The reason I feel that C should have picked a lane is because he gave a confidence of 5.
+I feel that only reviewer A and reviewer C understood our contribution. C didn't take any decision and passed it to AC. Sometimes, I feel that C should have taken a side rather than passing to AC (For eg., should have decreased the score). In a world where C rejects the paper citing that one has rewrite a lot and it requires significant changes, I would have argued that it was very nitpicky, but could have got some closure with time. The reason I feel that C should have picked a lane is because he gave a confidence of 5. I'm also thankful to C because he gave a really good idea on how to generalize our theorems.
 
-I'm also thankful to C because he gave a really good idea on how to generalize our theorems.
+At the end, even if reviewers say that our theoretical contribution is good -- I don't feel like trusting them. 
 
 Note : All reviewers are referred as "he, his" etc. It is easy to write for me this way.
