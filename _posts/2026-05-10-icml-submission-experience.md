@@ -4,11 +4,11 @@ title: ICML 2026 Submission Experience
 date: 2026-05-10
 ---
 
-Recently, I submitted a paper to ICML 2026. I want to share my experience about the whole process. Before going ahead, I want to clarify that I'm not leading author of the paper (although I beleive that I did decent contribution) and paper was rejected. The opinions are totally mine and I'm not sure if my coauthors beleive the same.
+Recently, I submitted a paper to ICML 2026. I want to share my experience about the whole process. Before going ahead, I want to clarify that I'm not leading author of the paper (although I beleive that I did decent contribution) and paper was rejected. The opinions are totally mine and I'm not sure if my coauthors believe the same.
 
 Our paper was mainly theoretical and to match, we selected primary area as "Theory -> Probabilisitic Methods". The final scores were 4,4,3,3 with confidence 3,2,5,3 respectively. The pre rebuttal scores were 3,3,3,3 with the same confidence scores. Let's call the reviewers as A, B, C, D.
 
-For each reviewer, I will write a breif things they pointed our and how our rebuttal was. I have used very informal language to describe the discussion. For example, when I say that we replied saying that reviewer is wrong, it shouldn't be taken in literal sense, in real, we actually write in a polite way that we disagree with the reviewer.
+For each reviewer, I will write a brief things they pointed our and how our rebuttal was. I have used very informal language to describe the discussion. For example, when I say that we replied saying that reviewer is wrong, it shouldn't be taken in literal sense, in real, we actually write in a polite way that we disagree with the reviewer.
 
 In this year ICML, the discussion procedure was as follows
 - The reviewers will give initial reviews.
@@ -23,7 +23,7 @@ The scores mean the following
 - 3 : Weak Reject
 - 4: Weak accept
 - 5 : Aceept
-- 6 : Strong accept.
+- 6 : Strong accept
 
 
 ## REVIEWER A
